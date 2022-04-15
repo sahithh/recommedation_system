@@ -26,7 +26,7 @@ def loadUsers (fileName) :
     userDictGlobal=userDict
     return userDictGlobal
 def first_interaction(userDict):
-    name=input("Enter your name (put a $ symbol after your name if you wish your preferences to remain private):\n")
+    name=input("Enter your name (put a $ symbol after your name if you wish your preferences to remain private):")
     if(name in userDict.keys()):
         print("user already exists")
         main_menu(userDict,name)
