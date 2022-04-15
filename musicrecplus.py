@@ -1,4 +1,5 @@
 import os.path
+from get_recommendation import get_recommendation
 PREF_FILE = 'musicrec-store.txt'
 userDictGlobal={}
 def loadUsers (fileName) :
@@ -26,7 +27,7 @@ def loadUsers (fileName) :
     userDictGlobal=userDict
     return userDictGlobal
 def first_interaction(userDict):
-    name=input("Enter your name (put a $ symbol after your name if you wish your preferences to remain private):")
+    name=input("Enter your name (put a $ symbol after your name if you wish your preferences to remain private):\n")
     if(name in userDict.keys()):
         print("user already exists")
         main_menu(userDict,name)
@@ -58,10 +59,10 @@ def get_preferences(userDict,name):
                 userDictGlobal=userDict
                 print(userDictGlobal)
 
-def get_recommendation(userDict,name):
-    user_preference=userDict[name]
+'''def get_recommendation(userDict,name):
+    
 
-    #print(user_preference)
+    #print(user_preference)'''
 
 
 
@@ -73,8 +74,10 @@ def main_menu(userDict,name):
 
     elif option=='r':
         get_recommendation(userDict,name)
+        main_menu(userDict,name)
 
 
 if __name__=="__main__":
+    #get_recommendation()
     user=loadUsers("musicrecplus.txt")
     first_interaction(user)
